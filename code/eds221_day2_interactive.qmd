@@ -7,6 +7,10 @@ execute:
   warning: false
 ---
 
+```{r}
+library(tidyverse)
+```
+
 ## Making and Indexing Data in R
 
 ### Vectors
@@ -144,7 +148,7 @@ fish_size[2,2]
 fish_size[,2]
 ```
 
-### Lists 
+### Lists
 
 ```{r}
 #Let's make a list!We nave named the elements in the list to refer to them later on.
@@ -174,3 +178,32 @@ ttest_example$p.value
 ```
 
 Mean size for trees in Site A is greater than the mean size in Site B (.......my statistical summary, `r ttest_example$p.value`)
+
+### Data Frames
+
+```{r}
+#Let's create a dataframe:
+fruit <- data.frame(type = c("apple", "banana", "peach"), mass = c(130, 195, 150))
+class(fruit)
+fruit
+
+#Let's access items in the dataframe
+fruit[3,2] #this is saying find row 3 and column 2 value in fruit
+```
+
+The purr package:
+
+```{r}
+#This looks at the dataframe,looks in the column called type, and looks for the second element:
+purrr::pluck(fruit, "type", 2)
+fruit$type[2]
+#these return the same ^
+
+#Let's look at the star wars dataset, specifically look at the starships column.  
+starwars$starships
+#Get a vector of the values of that first row and grab the second value in that vector. We can do that with both options below:
+starwars$starships[[1]][2]
+purrr::pluck(starwars, "starships", 1, 2)
+
+purrr::pluck(dataframe, column name, position of value)
+```
