@@ -127,6 +127,8 @@ IN TERMINAL
 
 -git branch -d "branch name" will delete the branch i was working in
 
+-git checkout -b "branch name" creates a new branch
+
 ### Matrix Indexing
 
 ```{r}
@@ -143,3 +145,32 @@ fish_size[,2]
 ```
 
 ### Lists 
+
+```{r}
+#Let's make a list!We nave named the elements in the list to refer to them later on.
+urchins <- list(color = "blue", values = c(1,2,3), meal= c("lunch", "dinner", "dessert"), cost = 5L)
+```
+
+```{r}
+#How to store the second element of that list in different ways. We can use double brackets to make it a vector and index as a vector or a list
+urchins_list <- urchins[2]
+urchins_vector <- urchins[[2]]
+```
+
+```{r}
+urchins$values
+```
+
+```{r}
+#Let's run a ttest on these 2 vectors
+sample1 <- c(1,2,3,4,5,3)
+sample2 <- c(3,7,2,6,9,3)
+
+ttest_example <- t.test(sample1, sample2)
+ttest_example
+#this provides us with the details of the ttest
+ttest_example$p.value
+#if the null hypothesis is true, there's only a 1.15% chance that 2 random samples would be atleast as different as the sample means we found
+```
+
+Mean size for trees in Site A is greater than the mean size in Site B (.......my statistical summary, `r ttest_example$p.value`)
