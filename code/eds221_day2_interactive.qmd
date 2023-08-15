@@ -7,7 +7,7 @@ execute:
   warning: false
 ---
 
-## Making and Indexing Data in R 
+## Making and Indexing Data in R
 
 ### Vectors
 
@@ -141,3 +141,5 @@ fish_size[2,2]
 #If I add a comma, it says "keep all rows"
 fish_size[,2]
 ```
+
+### Lists 
