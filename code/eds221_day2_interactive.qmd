@@ -7,6 +7,11 @@ execute:
   warning: false
 ---
 
+```{r}
+library(tidyverse)
+library(here)
+```
+
 ## Making and Indexing Data in R
 
 ### Vectors
@@ -142,4 +147,4 @@ fish_size[2,2]
 fish_size[,2]
 ```
 
-### Lists 
+### 
