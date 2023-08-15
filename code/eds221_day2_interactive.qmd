@@ -3,6 +3,108 @@ title: "EDS221 Day 2 Interactive"
 author: "carly"
 format: html
 editor: visual
+execute: 
+  warning: false
 ---
 
-## 
+## Making and Indexing Data in R 
+
+### Vectors
+
+Making vectors:
+
+```{r}
+dogs <- c("teddy", "khora", "waffle", "banjo", "tallie", "kona")
+
+# Check the class of our vector
+typeof(dogs)
+class(dogs)
+```
+
+```{r}
+my_breakfast <- c("waffles", 2, TRUE, "coffee")
+typeof(my_breakfast)
+class(my_breakfast)
+#the entire vector gets stored as a character because it can only have 1 type so it defaults to character
+```
+
+```{r}
+weights <- c(50, 60, 25, 35, 55)
+typeof(weights)
+class(weights)
+
+#values are stored as doubles even with whole number values. Doubles are values that can have decimals. 
+
+#to force these to be integer values I would add an "L" to the end of each
+weights_integer <- c(50L, 60L, 25L, 35L, 55L)
+typeof(weights_integer)
+class(weights_integer)
+```
+
+We can use the "is." function to test relationships between an object and a class. It is a way to ask R a question about the data. In this case we are asking what class.
+
+```{r}
+is.numeric(weights_integer)
+```
+
+How do we change the classes of data? We can use the "as." function. In this example, we are changing the zipcodes vector which is initially stored as numeric to character values with as.character
+
+```{r}
+zipcodes <- c(93105, 93514, 93101, 93401)
+class(zipcodes)
+zipcodes_chr <- as.character(zipcodes)
+zipcodes_chr
+```
+
+### Create a Vector with Named Elements
+
+```{r}
+dog_food <- c(teddy = "purina", khora = "alpo", waffle = "fancy feast", banjo = "blue diamond", tallie = "farmer's dog")
+class(dog_food)
+#We are tacking names on to the values in the vector. The class will always be of the stored values (those that are to the right of the equals sign). In most cases, the data in the vector is not named.
+```
+
+```{r}
+#How do we ask R the value of a specific position in a vector?
+dog_food[2]
+#This returns the second position in the vector. In this case it is Khora. 
+#R uses a 1-index. The first element is 1.
+#NOTE: Python and Javascript use 0 indexing
+```
+
+```{r}
+#We can return the name of a specific item in the vector, too
+dog_food["khora"]
+```
+
+Access ranges of values in a vector:
+
+-Use ":" to refer to a range (low: high)
+
+```{r}
+trees <- c("ponderosa", "lodgepole", "jeffrey", "sugar", "white", "bristlecone")
+trees[3]
+trees[3:5]
+```
+
+## For Loops!
+
+-Iterative or apply something to values in a vector
+
+```{r}
+i <- 4
+trees[i]
+#This is the same thing as saying return the 4th value in the vector trees
+```
+
+```{r}
+i <- seq(1:3) # Same thing as writing seq(from = 1, to = 3)
+trees[i]
+#this is now giving me the values of 1, 2, 3 in the trees vector based on the sequence we created
+```
+
+```{r}
+#we can reassign values based on the position. in this case we are reassigning the third item in the vector as "oak".
+trees[3] <- "Oak"
+trees
+```
