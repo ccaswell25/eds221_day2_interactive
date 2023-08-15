@@ -108,3 +108,30 @@ trees[i]
 trees[3] <- "Oak"
 trees
 ```
+
+### Branching in Git
+
+-in the terminal, just git branch to see what branch you're working in
+
+-you can click on the branch button in the git tab to create a new branch. This will also create a branch in github.
+
+-ALWAYS CHECK THE BRANCH YOU ARE WORKING IN
+
+IN TERMINAL
+
+-git checkout "branch name" allows you to switch branches
+
+-git branch will show you what branch you are working in
+
+### Matrix Indexing
+
+```{r}
+fish_size <- matrix(c(.8, 1.2, .4, .9), ncol = 2, nrow = 2, byrow = FALSE)
+fish_size
+class(fish_size)
+str(fish_size)
+typeof(fish_size)
+fish_size[2,2]
+#If I add a comma, it says "keep all rows"
+fish_size[,2]
+```
